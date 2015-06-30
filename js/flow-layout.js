@@ -4,8 +4,10 @@
 $(document).ready(function () {
     var card_count = Math.round(Math.random() * 100);//注意,本身还有一个,所以总数应该+1;
     var card_box;
+
     //卡片数量的提示
-    $("span.nav-tips").text("卡片数量:" + card_count + 1);
+    var num = card_count + 1;
+    $("span.nav-tips").text("卡片数量:" + num);
 
     //追加卡片布局
     for (var i = card_count; i >= 0; i--) {
