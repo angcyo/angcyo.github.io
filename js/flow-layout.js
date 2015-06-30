@@ -2,7 +2,7 @@
  * Created by angcyo on 15-06-30-030.
  */
 $(document).ready(function () {
-    var card_count = 26;//注意,本身还有一个,所以总数应该+1;
+    var card_count = Math.round(Math.random() * 100);//注意,本身还有一个,所以总数应该+1;
     var card_box;
 
     //追加卡片布局
