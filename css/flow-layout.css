@@ -1,0 +1,114 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/*导航布局样式*/
+span.nav-logo {
+    width: 100px;
+    height: 80px;
+    display: block;
+    float: left;
+    margin-left: 400px;
+    background: url("../image/logo.png") no-repeat;
+    background-size: contain;
+}
+
+span.nav-time {
+    float: right;
+    color: #fff;
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 1.3em;
+    /*transform: rotate(45deg);*/
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+a.nav-a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 80px;
+    margin: 0px 8px;
+    height: 100%;
+    padding: 0px 30px;
+    display: block;
+}
+
+a > span.nav-a-title {
+    display: block;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+li {
+    display: inline-block;
+}
+
+div.nav-bar {
+    width: 100%;
+    height: 80px;
+    background: #333333;
+    position: fixed;
+    top: 0px;
+    z-index: 110;
+    box-shadow: 0px 5px 3px;
+    -webkit-box-shadow: 0px 5px 10px 1px #999999;
+    -moz-box-shadow: 0px 5px 10px 1px #999999;
+    box-shadow: 0px 5px 10px 1px #999999;
+}
+
+ul.nav-ul {
+    width: 1360px;
+}
+
+/*内容布局样式*/
+div.container {
+    margin-top: 100px;
+    width: 100%;
+    display: block;
+}
+
+div.card-box {
+    width: 300px;
+    height: 400px;
+    background: url("../image/card-bg.png");
+    margin: 5px 8px;
+    float: left;
+    display: none;
+}
+
+img.card-img{
+    width: 287px;
+    height: 300px;
+    margin: 9px auto 0px;
+    display: block;
+}
+
+.card-title{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #14191E;
+    font-size: 1.2em;
+}
+
+.card-desc{
+    color: #B4BBBF;
+    margin: 8px 0px 5px 10px;
+    font-size: 0.9em;
+}
+
+.card-other{
+    color: #787DA1;
+    margin: 8px 0px 3px 10px;
+    font-size: 0.9em;
+}
