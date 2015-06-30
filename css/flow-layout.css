@@ -90,10 +90,19 @@ div.card-box {
 }
 
 img.card-img{
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+a.card-a-img{
     width: 287px;
     height: 300px;
     margin: 9px auto 0px;
     display: block;
+    overflow: hidden;
 }
 
 .card-title{
