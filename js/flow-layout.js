@@ -32,6 +32,12 @@ $(document).ready(function () {
         $(this).children().first().css({transform: "scale(1)", color: "#fff"})
     });
 
+        $("img.card-img").hover(function () {
+        $(this).css({color: createRandomColor(), transform: "scale(1.3)"})
+    }, function () {
+        $(this).css({color: createRandomColor(), transform: "scale(1)"})
+    });
+
     startTime();//显示时间
 });
 
