@@ -18,7 +18,7 @@ $(document).ready(function () {
         $("div.container").find("div.card-box").eq(i).find(".card-title").text(getRandomTitle());
         $("div.container").find("div.card-box").eq(i).find(".card-desc").text(getRandomDesc());
         $("div.container").find("div.card-box").eq(i).find(".card-other").text(getRandomOtherText());
-         $("div.container").find("div.card-box").eq(i).delay(200 * i).fadeIn(1000);
+        $("div.container").find("div.card-box").eq(i).delay(200 * i).fadeIn(1000);
     }
 
     $("span.nav-time").css("transform", " rotate(45deg)");//旋转时间45度
@@ -32,7 +32,7 @@ $(document).ready(function () {
         $(this).children().first().css({transform: "scale(1)", color: "#fff"})
     });
 
-        $("img.card-img").hover(function () {
+    $("img.card-img").hover(function () {
         $(this).css({color: createRandomColor(), transform: "scale(1.3)"})
     }, function () {
         $(this).css({color: createRandomColor(), transform: "scale(1)"})
