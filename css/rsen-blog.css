@@ -1,0 +1,144 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	color: #fff;
+}
+body {
+	min-width: 800px;
+	min-height: 1000px;
+}
+/*.section {
+	background: -webkit-gradient(linear, top left, bottom left, from(#4bbfc3), to(#7baabe));
+	background: -webkit-linear-gradient(#4BBFC3, #7BAABE);
+	background: linear-gradient(#4BBFC3, #7BAABE);
+}*/
+/*#section2{
+		background: -webkit-gradient(linear, top left, bottom left, from(#969ac6), to(#636F8F));
+		background: -webkit-linear-gradient(#969AC6, #636F8F);
+		background: linear-gradient(#969AC6,#636F8F);
+	}*/
+
+.section {
+	background: url(../image/section-bg.png) repeat;
+}
+/*section 内部包裹层*/
+
+.pagewrap {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+/*左包裹*/
+
+.l_pagewrap {
+	width: 30%;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	position: relative;
+	/*background-color: #0099FF;*/
+}
+/*右包裹*/
+
+.r_pagewrap {
+	width: 70%;
+	height: 100%;
+	display: inline-block;
+	float: right;
+	position: relative;
+	/*background-color: #DA0A0A;*/
+}
+/*居中*/
+
+.center {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	display: inline-block;
+	margin: auto;
+}
+/*横向 居中*/
+
+.h_center {
+	position: relative;
+	margin: 0px auto;
+}
+/*简介围绕*/
+
+.wrap_intro {
+	width: 400px;
+}
+/*个人简介*/
+
+.intro {
+	width: 100%;
+	height: 45px;
+	font-size: 250%;
+	text-align: center;
+}
+/*左边的介绍*/
+
+.l_intro {
+	width: 350px;
+	position: absolute;
+	top: 10%;
+	left: -100%;
+	text-align: left;
+}
+/*右边的介绍*/
+
+.r_intro {
+	width: 350px;
+	position: absolute;
+	bottom: 10%;
+	right: -100%;
+	text-align: right;
+}
+/*展示APP 截图*/
+
+.app_box {
+	width: 360px;
+	height: 640px;
+	background-color: #D86C01;
+}
+/*装载图片的大小*/
+
+.load_img {
+	width: 90px;
+	height: 90px;
+}
+/*app截图图片大小*/
+
+.app_img {
+	width: 360px;
+	height: 640px;
+	position: absolute;
+}
+/*app描述文本大小*/
+
+.app_contain {
+	/*background-color: #000000;*/
+	width: 300px;
+	height: 400px;
+	left: -160%;
+}
+
+.app_logo{
+	width: 100px;
+	height: 100px;
+	margin-left: 50px;
+	margin-bottom: 30px;
+	position: relative;
+}
+/*#boxID1 {
+	width: 560px;
+	height: 300px;
+	background-color: #444444;
+}
+#boxID2 {
+	width: 560px;
+	height: 300px;
+	background-color: #444444;
+}*/

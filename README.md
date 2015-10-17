@@ -1,2 +1,2 @@
 # angcyo.github.io
-My GitGub Page
+个人信息介绍

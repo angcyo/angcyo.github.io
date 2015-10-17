@@ -3,42 +3,312 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>RSen.</title>
+		<title>RSen.个人介绍</title>
 		<meta name="generator" content="angcyo" />
 		<meta name="author" content="angcyo" />
 		<meta name="keywords" content="angcyo" />
 		<meta name="description" content="angcyo" />
 
-		<script src="jquery-1.8.3/jquery-1.8.3.min.js"></script>
-		<script src="js/flow-layout.js"></script>
-		<link href="css/flow-layout.css" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="favicon.ico" />
+		<!--<link rel="stylesheet" href="css/flow-layout.css" />-->
+		<link rel="stylesheet" href="css/jquery.fullPage.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/rsen-blog.css" />
+
+		<script src="jquery/jquery-1.8.3.min.js"></script>
+		<script src="jquery/jquery-ui-1.9.1.min.js"></script>
+		<script src="jquery/jquery.easings.min.js"></script>
+		<script src="jquery/jquery.fullPage.min.js"></script>
+		<script src="jquery/jquery.lettering.js"></script>
+		<script src="jquery/jquery.textillate.js"></script>
+		<script src="jquery/myfocus-2.0.4.full.js"></script>
+
+		<script src="js/rsen-blog.js"></script>
 	</head>
 
 	<body>
-		<!--导航布局-->
-		<div class="nav-bar">
-			<span class="nav-tips"></span>
-			<span class="nav-logo"></span>
-			<span class="nav-time"></span>
-			<ul class="nav-ul">
-				<li><a href="http://angcyo.github.io" class="nav-a"><span class="nav-a-title">主页</span></a></li>
-				<li><a href="https://github.com/angcyo" class="nav-a" target="_blank"><span class="nav-a-title">GitHub</span></a></li>
-				<li><a href="http://blog.csdn.net/angcyo" class="nav-a" target="_blank"><span class="nav-a-title">CSDN</span></a></li>
-				<li><a href="http://wenzhang.baidu.com/" class="nav-a" target="_blank"><span class="nav-a-title">Baidu</span></a></li>
-				<li><a href="#" class="nav-a"><span class="nav-a-title">Other</span></a></li>
-			</ul>
-		</div>
+		<div id="fullpage">
+			<!--第一部分-->
+			<div class="section s1">
+				<div class="pagewrap h_center wrap_intro">
+					<h1 class="intro center" data-in-effect="swing">Robi个人介绍</h1>
+					<!--左边介绍包裹-->
+					<div class="l_intro">
+						<p data-in-effect="tada">1992年 晴天霹雳, 登录人间;</p>
+						<br />
+						<p data-in-effect="tada">犀利糊涂, 在2009年 蹦进了南昌工程学院;</p>
+						<br />
+						<p data-in-effect="tada">2013 年, 我的人生开始上线测试了.</p>
+					</div>
+					<!--右边介绍包裹-->
+					<div class="r_intro">
+						<p data-in-effect="tada" data-in-reverse="true"> 干过初创工作公司; </p>
+						<br />
+						<p data-in-effect="tada" data-in-reverse="true"> 当过主程序员;</p>
+						<br />
+						<p data-in-effect="tada" data-in-reverse="true"> 开发过不下10款APP; </p>
+						<br />
+						<p data-in-effect="tada" data-in-reverse="true"> 梦想有多大,舞台就有多大,只需上台的机会.</p>
+					</div>
+				</div>
+			</div>
+			<!--结束第一部分-->
 
-		<!--内容-->
-		<div class="container">
-			<!--卡片盒子-->
-			<div class="card-box">
-				<a class="card-a-img" href="#"><img class="card-img" src="monster_src/image/img01.jpg"></a>
-				<h3 class="card-title">标题1</h3>
-				<p class="card-desc">描述</p>
-				<p class="card-other">其他</p>
+			<!--第二部分 玩得开心-->
+			<div class="section s_y2havefun">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/y2havefun/logo.png" class="app_logo" />
+							<p data-in-effect="bounce">采用独创 双线程框架 开发;</p>
+							<br />
+							<p data-in-effect="bounce">抓取:</p>
+							<br />
+							<p data-in-effect="bounce">叽歪笑话(http://www.3jy.com/)</p>
+							<br />
+							<p data-in-effect="bounce">6贱事(http://www.6jianshi.com/)</p>
+							<br />
+							<p data-in-effect="bounce">巨有趣(http://www.juyouqu.com/)</p>
+							<br />
+							<p data-in-effect="bounce">来福岛(http://www.laifudao.com/)</p>
+							<br />
+							<p data-in-effect="bounce">我恶搞(http://www.woegao.com/)</p>
+							<br />
+							<p data-in-effect="bounce">捧腹网(http://www.pengfu.com)</p>
+							<br />
+							<p data-in-effect="bounce">网站图文信息于一身的,一款APP;</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1qWBWMks" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/y2havefun/1.jpg" class="app_img img1" />
+							<img src="image/y2havefun/2.jpg" class="app_img img2" />
+							<img src="image/y2havefun/3.jpg" class="app_img img3" />
+							<img src="image/y2havefun/4.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--结束第二部分-->
+
+			<!--第三部分 昂递快递-->
+			<div class="section s_ondemand ">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/ondemand/logo.png" class="app_logo" />
+							<p data-in-effect="fadeInLeft">采用独创 双线程框架 开发;</p>
+							<br />
+							<p data-in-effect="fadeInLeft">快递员,输入单号,</p>
+							<br />
+							<p data-in-effect="fadeInLeft">点击开始配送之后,</p>
+							<br />
+							<p data-in-effect="fadeInLeft">就可以追踪快递员所在位置,</p>
+							<br />
+							<p data-in-effect="fadeInLeft">并且可以知道运单状态;</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1ntAITBF" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/ondemand/1.jpg" class="app_img img1" />
+							<img src="image/ondemand/2.jpg" class="app_img img2" />
+							<img src="image/ondemand/4.jpg" class="app_img img3" />
+							<img src="image/ondemand/3.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--结束第三方部分-->
+
+			<!--第四部分 学校oa系统-->
+			<div class="section oaschool">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/oaschool/256.png" class="app_logo" />
+							<p data-in-effect="bounceInLeft">采用独创 双线程框架 开发;</p>
+							<br />
+							<p data-in-effect="bounceInLeft">管理学校信息发布,</p>
+							<br />
+							<p data-in-effect="bounceInLeft">通知发布,短信发布,邮件发布,</p>
+							<br />
+							<p data-in-effect="bounceInLeft">包括: 显示所有通知列表, </p>
+							<br />
+							<p data-in-effect="bounceInLeft">查看通知详情, </p>
+							<br />
+							<p data-in-effect="bounceInLeft">查看通知附件, 打开及保存文件;</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1bnAv1Gr" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/oaschool/1.jpg" class="app_img img1" />
+							<img src="image/oaschool/4.jpg" class="app_img img2" />
+							<img src="image/oaschool/2.jpg" class="app_img img3" />
+							<img src="image/oaschool/3.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第五 省份车标查询-->
+			<div class="section s_y2tools ">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/y2tools/ic_launcher.jpg" class="app_logo" />
+							<p data-in-effect="wobble">收集了所有 车标, </p>
+							<br />
+							<p data-in-effect="wobble">全中国省份 简称,</p>
+							<br />
+							<p data-in-effect="wobble">邮政编码, </p>
+							<br />
+							<p data-in-effect="wobble">区域码等信息;</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1ocMXg" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/y2tools/1.jpg" class="app_img img1" />
+							<img src="image/y2tools/2.jpg" class="app_img img2" />
+							<img src="image/y2tools/3.jpg" class="app_img img3" />
+							<img src="image/y2tools/4.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第六 下载器-->
+			<div class="section s_down ">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/y2down/logo.jpg" class="app_logo" />
+							<p data-in-effect="flip">一个下载器; </p>
+							<br />
+							<p data-in-effect="flip">支持内网,外网,下载文件;</p>
+							<br />
+							<p data-in-effect="flip">支持断点,多线程下载;</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1sjQhSnj" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/y2down/1.jpg" class="app_img img1" />
+							<img src="image/y2down/2.jpg" class="app_img img2" />
+							<img src="image/y2down/3.jpg" class="app_img img3" />
+							<img src="image/y2down/4.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第七 android浏览器-->
+			<div class="section s_y2androidapi ">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/y2androidapi/logo.jpg" class="app_logo" />
+							<p data-in-effect="pulse">采用最新的Google Design </p>
+							<br />
+							<p data-in-effect="pulse">设计理念开发设计; </p>
+							<br />
+							<p data-in-effect="pulse">解析了Android API官网的所有信息,</p>
+							<br />
+							<p data-in-effect="pulse">并显示在手机上;</p>
+							<br />
+							<p data-in-effect="pulse">相当于Mini版的手机;</p>
+							<br />
+							<p data-in-effect="pulse">Android API浏览器;</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1i38hv4h" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/y2androidapi/1.jpg" class="app_img img1" />
+							<img src="image/y2androidapi/2.jpg" class="app_img img2" />
+							<img src="image/y2androidapi/3.jpg" class="app_img img3" />
+							<img src="image/y2androidapi/4.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第八 程序锁-->
+			<div class="section s_y2lockapp ">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/y2lockapp/logo512.jpg" class="app_logo" />
+							<p data-in-effect="flash">可以给任意APP加密, </p>
+							<br />
+							<p data-in-effect="flash">设置密码之后, </p>
+							<br />
+							<p data-in-effect="flash">每次打开对应APP都需要输入密码;</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1dDvym6d" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/y2lockapp/1.jpg" class="app_img img1" />
+							<img src="image/y2lockapp/2.jpg" class="app_img img2" />
+							<img src="image/y2lockapp/3.jpg" class="app_img img3" />
+							<img src="image/y2lockapp/4.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--第九 圆周率-->
+			<div class="section s_y2pigame ">
+				<div class="pagewrap">
+					<!--左边 内容盒子-->
+					<div class="l_pagewrap">
+						<div class="center app_contain">
+							<img src="image/y2pigame/logo_256_2.png" class="app_logo" />
+							<p data-in-effect="rollIn">一个圆周率相关的游戏, </p>
+							<br />
+							<p data-in-effect="rollIn">可以用来检查你对圆周率的熟悉程度</p>
+							<br />
+							<a href="http://pan.baidu.com/s/1i3m2BmH" target="_blank">点击下载</a>
+						</div>
+					</div>
+					<!--右边  图盒子 -->
+					<div class="r_pagewrap">
+						<div class="center app_box">
+							<img src="image/y2pigame/1.jpg" class="app_img img1" />
+							<img src="image/y2pigame/2.jpg" class="app_img img2" />
+							<img src="image/y2pigame/3.jpg" class="app_img img3" />
+							<img src="image/y2pigame/4.jpg" class="app_img img4" />
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		<script src="jquery/move.min.js"></script>
 	</body>
 
 </html>
