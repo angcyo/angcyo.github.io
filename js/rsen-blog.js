@@ -94,10 +94,8 @@ $(document).ready(function() {
 							});
 						});
 					});
-
 				});
 			}
-
 		},
 		'onLeave': function(index, nextIndex, direction) {
 			var app_contain, app_img1, app_img2, app_img3, app_img4, app_p;
@@ -163,11 +161,20 @@ $(document).ready(function() {
 					app_img4 = '.s_y2pigame .img4';
 					app_p = '.s_y2pigame p';
 				}
-				move(app_contain).set('left', '-160%').end();
-				move(app_img1).set('left', '0%').end();
-				move(app_img2).set('left', '0%').end();
-				move(app_img3).set('left', '0%').end();
-				move(app_img4).set('left', '0%').end();
+				move(app_contain).set('left', '-160%').end(function() {
+						move(app_img1).set('right', '-360px').end(function() {
+							move(app_img2).set('right', '-360px').end(function() {
+								move(app_img3).set('right', '-360px').end(function() {
+									move(app_img4).set('right', '-360px').end();
+								});
+							});
+						});
+					});
+//				move(app_contain).set('left', '-160%').end();
+//				move(app_img1).set('right', '-360px').end();
+//				move(app_img2).set('right', '-360px').end();
+//				move(app_img3).set('right', '-360px').end();
+//				move(app_img4).set('right', '-360px').end();
 			}
 		}
 	});
