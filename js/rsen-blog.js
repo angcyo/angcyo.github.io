@@ -6,6 +6,7 @@ $(document).ready(function() {
 		'navigationPosition': 'right',
 		'navigationTooltips': ['个人简介', 'APP-->玩得开心', 'APP-->昂递配送', 'APP-->办公OA系统', 'APP-->省份车标简称查询', 'APP-->下载器', 'APP-->安卓API浏览器', 'APP-->程序锁', 'APP-->圆周率诗歌'],
 		'showActiveTooltip': true,
+		'continuousVertical':true,
 		'afterLoad': function(anchorLink, index) {
 			var app_contain, app_img1, app_img2, app_img3, app_img4, app_p, bg_col;
 			if (index == 1) {
