@@ -86,6 +86,7 @@ body {
 	top: 10%;
 	left: -100%;
 	text-align: left;
+	opacity: 0;
 }
 /*右边的介绍*/
 
@@ -95,6 +96,7 @@ body {
 	bottom: 10%;
 	right: -100%;
 	text-align: right;
+	opacity: 0;
 }
 /*展示APP 截图*/
 
@@ -121,12 +123,12 @@ body {
 
 .app_contain {
 	/*background-color: #000000;*/
+	
 	width: 300px;
 	height: 400px;
 	left: -160%;
 }
-
-.app_logo{
+.app_logo {
 	width: 100px;
 	height: 100px;
 	margin-left: 50px;

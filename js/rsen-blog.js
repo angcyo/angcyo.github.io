@@ -15,8 +15,8 @@ $(document).ready(function() {
 					$('.l_intro p').textillate('start');
 					$('.r_intro p').textillate('start');
 					move('.intro').set('top', '-80%').end();
-					move('.l_intro').set('left', '0%').set('top', '30%').end();
-					move('.r_intro').set('right', '0%').set('bottom', '30%').end();
+					move('.l_intro').set('left', '0%').set('opacity', 1).set('top', '30%').end();
+					move('.r_intro').set('right', '0%').set('opacity', 1).set('bottom', '30%').end();
 				});
 			} else {
 				if (index == 2) {
@@ -102,8 +102,8 @@ $(document).ready(function() {
 			var app_contain, app_img1, app_img2, app_img3, app_img4, app_p;
 			if (index == 1) {
 				move('.intro').set('top', '0%').end();
-				move('.l_intro').set('left', '-100%').set('top', '10%').end();
-				move('.r_intro').set('right', '-100%').set('bottom', '10%').end();
+				move('.l_intro').set('left', '-100%').set('opacity', 0).set('top', '10%').end();
+				move('.r_intro').set('right', '-100%').set('opacity', 0).set('bottom', '10%').end();
 			} else {
 				if (index == 2) {
 					app_contain = '.s_y2havefun .app_contain';
