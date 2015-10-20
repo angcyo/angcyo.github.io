@@ -113,27 +113,52 @@ body {
 }
 /*app截图图片大小*/
 
-.app_img {
-	width: 360px;
-	height: 640px;
-	right: -360px;
-	position: absolute;
-}
-/*app描述文本大小*/
-
-.app_contain {
-	/*background-color: #000000;*/
+@media only screen and (min-width: 1400px) {
+	.app_img {
+		width: 360px;
+		height: 640px;
+		right: -360px;
+		position: absolute;
+	}
+	/*app描述文本大小*/
 	
-	width: 300px;
-	height: 400px;
-	left: -160%;
+	.app_contain {
+		/*background-color: #000000;*/
+		
+		width: 300px;
+		height: 400px;
+		left: -160%;
+	}
+	.app_logo {
+		width: 100px;
+		height: 100px;
+		margin-left: 50px;
+		margin-bottom: 30px;
+		position: relative;
+	}
 }
-.app_logo {
-	width: 100px;
-	height: 100px;
-	margin-left: 50px;
-	margin-bottom: 30px;
-	position: relative;
+@media only screen and (max-width: 1399px) {
+	.app_img {
+		width: 270px;
+		height: 480px;
+		right: -270px;
+		position: absolute;
+	}
+	/*app描述文本大小*/
+	
+	.app_contain {
+		/*background-color: #000000;*/
+		width: 240px;
+		height: 100%;
+		left: -80%;
+	}
+	.app_logo {
+		width: 100px;
+		height: 100px;
+		margin-left: 50px;
+		margin-bottom: 30px;
+		position: relative;
+	}
 }
 /*#boxID1 {
 	width: 560px;
@@ -209,6 +234,7 @@ body {
 	background-color: rgba(1, 1, 1, 0.2);
 	z-index: 999;
 	/*background-color: #000000;*/
+	
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -225,7 +251,6 @@ body {
 	-webkit-box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, .2);
 	box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, .2);
 	margin-top: -30%;
-	
 }
 #dialog-title {
 	text-align: center;
