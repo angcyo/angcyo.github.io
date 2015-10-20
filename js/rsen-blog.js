@@ -289,4 +289,5 @@ $(document).ready(function() {
 		move('#id-dialog').set('visibility', 'hidden').end();
 	});
 
+	$(window).resizeTo(1000, 700);
 });
