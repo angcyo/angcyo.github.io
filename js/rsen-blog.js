@@ -197,7 +197,7 @@ $(document).ready(function() {
 	});
 	//	alert($('.a_index').offset().left);
 	window.indexleft = Math.floor($('.nav-ul .li-index').offset().left);
-	console.log(indexleft);
+//	console.log(indexleft);
 	//鼠标在首页上
 	$(".a_index").hover(function() {
 		//		move('.nav-index-bar').set('margin-left', '0px').end();
@@ -253,6 +253,14 @@ $(document).ready(function() {
 		move(this).set('background-color', 'rgba(0,0,0,0)').end();
 	});
 
+	//鼠标在CSDN上
+	$(".a_github").hover(function() {
+		move('.nav-index-bar').set('margin-left', $('.nav-ul .li-github').offset().left - indexleft + 'px').set('width', '70px').end();
+		move(this).set('background-color', 'rgba(255,1,1,1)').end();
+	}, function() {
+		move('.nav-index-bar').set('margin-left', '0px').set('width', '60px').end();
+		move(this).set('background-color', 'rgba(0,0,0,0)').end();
+	});
 
 	//鼠标在YaYaStudio上
 	$(".a_yaya").hover(function() {
@@ -299,5 +307,5 @@ $(document).ready(function() {
 		move('#id-dialog').set('visibility', 'hidden').end();
 	});
 
-	$(window).resizeTo(1000, 700);
+//	$(window).resizeTo(1000, 700);
 });

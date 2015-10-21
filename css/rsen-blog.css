@@ -7,6 +7,7 @@ body {
 	min-width: 800px;
 	min-height: 600px;
 	overflow: scroll;
+	font-family: "微软雅黑";
 }
 /*.section {
 	background: -webkit-gradient(linear, top left, bottom left, from(#4bbfc3), to(#7baabe));
