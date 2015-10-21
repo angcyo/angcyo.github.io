@@ -244,6 +244,16 @@ $(document).ready(function() {
 		move(this).set('background-color', 'rgba(0,0,0,0)').end();
 	});
 
+	//鼠标在CSDN上
+	$(".a_csdn").hover(function() {
+		move('.nav-index-bar').set('margin-left', $('.nav-ul .li-csdn').offset().left - indexleft + 'px').set('width', '60px').end();
+		move(this).set('background-color', 'rgba(255,1,1,1)').end();
+	}, function() {
+		move('.nav-index-bar').set('margin-left', '0px').set('width', '60px').end();
+		move(this).set('background-color', 'rgba(0,0,0,0)').end();
+	});
+
+
 	//鼠标在YaYaStudio上
 	$(".a_yaya").hover(function() {
 		move('.nav-index-bar').set('margin-left', $('.nav-ul .li-yaya').offset().left - indexleft + 'px').set('width', '110px').end();
