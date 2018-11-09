@@ -13,16 +13,16 @@
         //腾讯tbs x5内核浏览器,腾讯体系
         if (ua.indexOf("QQ/") > 0) {
             //document.writeln("QQ浏览器")
-            window.location.href = '/jump/qq.html';
+            window.location.href = './jump/qq.html';
         } else if (ua.indexOf("MicroMessenger") > 0) {
             //document.writeln("微信浏览器")
-            window.location.href = '/jump/wx.html';
+            window.location.href = './jump/wx.html';
         }
     } else if (ua.indexOf("UCBrowser") > 0) {
         //UC 浏览器内核,支付宝体系
         if (ua.indexOf("AlipayClient") > 0) {
             //document.writeln("支付宝")
-            window.location.href = '/jump/zfb.html';
+            window.location.href = './jump/zfb.html';
         }
     } else {
         document.writeln("未知浏览器:" + ua)
