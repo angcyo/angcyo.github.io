@@ -30,12 +30,16 @@
         } else if (ua.indexOf("MicroMessenger") > 0) {
             //document.writeln("微信浏览器")
             window.location.href = base_url + 'wx.html';
+        } else {
+            document.getElementById("tip").innerHTML = "请在 微信, QQ 或者 支付宝 中打开.";
         }
     } else if (ua.indexOf("UCBrowser") > 0) {
         //UC 浏览器内核,支付宝体系
         if (ua.indexOf("AlipayClient") > 0) {
             //document.writeln("支付宝")
             window.location.href = base_url + 'zfb.html';
+        } else {
+            document.getElementById("tip").innerHTML = "请在 微信, QQ 或者 支付宝 中打开.";
         }
     } else {
         //document.writeln("未知浏览器:" + ua)
