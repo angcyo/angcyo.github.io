@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>付款码</title>
+</head>
+<body>
+<p style="background-color: #00000000; text-align: center">正在跳转中...</p>
+<script>
+    var ua = navigator.userAgent
+    // document.writeln("浏览器:" + ua)
+
+    if (ua.indexOf("MQQBrowser") > 0) {
+        //腾讯tbs x5内核浏览器,腾讯体系
+        if (ua.indexOf("QQ/") > 0) {
+            document.writeln("QQ浏览器")
+        } else if (ua.indexOf("MicroMessenger") > 0) {
+            document.writeln("微信浏览器")
+        }
+    } else if (ua.indexOf("UCBrowser") > 0) {
+        //UC 浏览器内核,支付宝体系
+        if (ua.indexOf("AlipayClient") > 0) {
+            document.writeln("支付宝")
+        }
+    } else {
+        document.writeln("未知浏览器:" + ua)
+    }
+</script>
+</body>
+</html>
