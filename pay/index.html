@@ -10,10 +10,14 @@
             padding: 0;
             margin: 0;
         }
+
+        p {
+            padding: 30px;
+        }
     </style>
 </head>
 <body>
-<p style="background-color: #00000000; text-align: center">正在跳转中...</p>
+<p id="tip" style="background-color: #00000000; text-align: center">正在跳转中...</p>
 <script>
     var ua = navigator.userAgent
     // document.writeln("浏览器:" + ua)
@@ -33,7 +37,8 @@
             window.location.href = '/pay/jump/zfb.html';
         }
     } else {
-        document.writeln("未知浏览器:" + ua)
+        //document.writeln("未知浏览器:" + ua)
+        document.getElementById("tip").innerHTML = "请在 微信, QQ 或者 支付宝 中打开."
     }
 </script>
 </body>
