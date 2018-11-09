@@ -19,26 +19,28 @@
 <body>
 <p id="tip" style="background-color: #00000000; text-align: center">正在跳转中...</p>
 <script>
-    var ua = navigator.userAgent
+    var ua = navigator.userAgent;
+    var base_url = "/pay/yb/jump/";
     // document.writeln("浏览器:" + ua)
     if (ua.indexOf("MQQBrowser") > 0) {
         //腾讯tbs x5内核浏览器,腾讯体系
         if (ua.indexOf("QQ/") > 0) {
             //document.writeln("QQ浏览器")
-            window.location.href = './jump/qq.html';
+            window.location.href = base_url + 'qq.html';
         } else if (ua.indexOf("MicroMessenger") > 0) {
             //document.writeln("微信浏览器")
-            window.location.href = './jump/wx.html';
+            window.location.href = base_url + 'wx.html';
         }
     } else if (ua.indexOf("UCBrowser") > 0) {
         //UC 浏览器内核,支付宝体系
         if (ua.indexOf("AlipayClient") > 0) {
             //document.writeln("支付宝")
-            window.location.href = './jump/zfb.html';
+            window.location.href = base_url + 'zfb.html';
         }
     } else {
         //document.writeln("未知浏览器:" + ua)
         document.getElementById("tip").innerHTML = "请在 微信, QQ 或者 支付宝 中打开.";
+        //window.location.href = './jump/qq.html';
     }
 </script>
 </body>
