@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="../css/scrollbar.css" rel="stylesheet"/>
+    <title>加载中...</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #323233;
+            font-size: 16px;
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+            background-color: #f7f8fa;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #gradient {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #logo {
+            margin-top: 30px;
+            width: 128px;
+        }
+
+        #qr {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .ua-tip {
+            position: absolute;
+            width: 300px;
+            top: 10px;
+            right: 20px;
+        }
+
+        .ua-tip-mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.62);
+        }
+
+        .bottom {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .btn-download {
+            width: 300px;
+            height: 70px;
+            margin-top: 32px;
+            border-radius: 40px;
+            background-color: #00beff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-download-png {
+            display: none;
+            margin-top: 32px;
+        }
+
+        .btn-download-png img {
+            width: 160px;
+        }
+
+        .btn-download .download {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 40px;
+            -webkit-transition: background-position .25s ease-in-out;
+            transition: background-position .25s ease-in-out;
+            background-color: #333;
+            position: relative;
+            opacity: 0;
+            z-index: 5;
+        }
+
+        .btn-download .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 4;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 70px;
+            font-size: 30px;
+            color: #fff;
+            background: url(https://gitee.com/angcyo/res/raw/master/png/btn-line.png) no-repeat -300px;
+            border-radius: 40px;
+            -webkit-transition: all .25s ease-in-out;
+            transition: all .25s ease-in-out;
+        }
+
+        .btn-download:hover .mask {
+            background-position: 0 70%;
+        }
+
+        #title {
+            color: #f7f8fa;
+        }
+
+        #des {
+            color: azure;
+        }
+    </style>
+  </head>
+  <body id="gradient">
+
+    <!--内容层-->
+    <main>
+      <img id="logo"/>
+      <h3 id="title" style="padding: 10px; margin-top: 20px"></h3>
+      <p id="des" style="padding: 10px"></p>
+      <img id="qr"/>
+
+      <div class="btn-download">
+        <a class="download" href=""></a>
+        <div class="mask">
+          立即下载
+        </div>
+      </div>
+
+      <div class="btn-download-png">
+        <a class="download" href=""><img src="https://gitee.com/angcyo/res/raw/master/png/btn-download.png"/></a>
+      </div>
+
+      <img class="bottom" id="bottomUrl"/>
+    </main>
+
+    <!--遮罩层-->
+    <div class="ua-tip-mask">
+      <img class="ua-tip" src="https://gitee.com/angcyo/res/raw/master/image/weixin/weixin_ua_tip.png"/>
+    </div>
+  </body>
+
+  <script crossorigin="anonymous"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+  <script>
+
+    window.isWeiXinUA = function () {
+      const ua = navigator.userAgent.toLowerCase()
+      return ua.indexOf('MicroMessenger'.toLowerCase()) > 0
+    }
+
+    window.isMobileUA = function () {
+      const ua = navigator.userAgent
+      return !!ua.match(/Mobile/)
+    }
+
+    function getQueryVariable(variable) {
+      let query = window.location.search.substring(1)
+      let vars = query.split("&")
+      for (let i = 0; i < vars.length; i++) {
+        let pair = vars[i].split("=")
+        if (pair[0] === variable) {
+          return pair[1]
+        }
+      }
+      return undefined
+    }
+
+    /*需要显示的logo*/
+    const logo = getQueryVariable('l') || "https://gitee.com/angcyo/res/raw/master/png/apk.png"
+    let title = getQueryVariable('t') || "Android应用程序"
+    const des = getQueryVariable('d') || '1.修复已知问题<br>2.优化交互体验'
+    /*需要显示的二维码*/
+    const qr = getQueryVariable('q')
+    /*真实的跳转地址*/
+    const raw = getQueryVariable('r')
+    const bottomUrl = getQueryVariable('b')
+
+    if (logo) {
+      $("#logo").attr("src", logo)
+    } else {
+      $("#logo").hide()
+    }
+
+    if (title) {
+      title = decodeURI(title)
+      document.title = title
+      $("#title").text(title)
+    } else {
+      $("#title").hide()
+    }
+
+    if (des) {
+      $("#des").html(decodeURI(des))
+    } else {
+      $("#des").hide()
+    }
+
+    if (qr) {
+      $("#qr").attr("src", qr)
+    } else {
+      $("#qr").hide()
+    }
+
+    if (raw) {
+      $(".download").attr("href", raw)
+    } else {
+      $(".btn-download").hide()
+    }
+
+    if (bottomUrl) {
+      if (bottomUrl.startsWith("http")) {
+        $("#bottomUrl").attr("src", bottomUrl)
+      } else {
+        $(".bottomUrl").hide()
+      }
+    } else {
+      $("#bottomUrl").attr("src", "https://api.isoyu.com/ip_images.php")
+    }
+
+    if (isWeiXinUA()) {
+      $('.ua-tip-mask').show()
+    } else {
+      if (raw && raw.startsWith('http')) {
+        //立即跳转下载
+        document.title = "跳转中..."
+        setTimeout(function () {
+          location.href = raw
+          //window.open(raw)
+          document.title = title
+        }, 1000)
+      }
+      $('.ua-tip-mask').hide()
+      // $('.ua-tip-mask').show()
+    }
+
+    if (isMobileUA()) {
+      $('.btn-download-png').show()
+      $('.btn-download').hide()
+    }
+
+  </script>
+
+  <script type="text/javascript">
+    const colors = [[62, 35, 255],
+      [60, 255, 60],
+      [255, 35, 98],
+      [45, 175, 230],
+      [255, 0, 255],
+      [255, 128, 0]]
+
+    let step = 0
+    //color table indices for:
+    // current color left
+    // next color left
+    // current color right
+    // next color right
+    const colorIndices = [0, 1, 2, 3]
+
+    //transition speed
+    const gradientSpeed = 0.002
+
+    function updateGradient() {
+
+      if ($ === undefined) return
+
+      const c0_0 = colors[colorIndices[0]]
+      const c0_1 = colors[colorIndices[1]]
+      const c1_0 = colors[colorIndices[2]]
+      const c1_1 = colors[colorIndices[3]]
+
+      const istep = 1 - step
+      const r1 = Math.round(istep * c0_0[0] + step * c0_1[0])
+      const g1 = Math.round(istep * c0_0[1] + step * c0_1[1])
+      const b1 = Math.round(istep * c0_0[2] + step * c0_1[2])
+      const color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")"
+
+      const r2 = Math.round(istep * c1_0[0] + step * c1_1[0])
+      const g2 = Math.round(istep * c1_0[1] + step * c1_1[1])
+      const b2 = Math.round(istep * c1_0[2] + step * c1_1[2])
+      const color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")"
+
+      $('#gradient').css({
+        background: "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
+      }).css({
+        background: "-moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%)"
+      })
+
+      step += gradientSpeed
+      if (step >= 1) {
+        step %= 1
+        colorIndices[0] = colorIndices[1]
+        colorIndices[2] = colorIndices[3]
+
+        //pick two new target color indices
+        //do not pick the same as the current one
+        colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length
+        colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length
+      }
+    }
+
+    //updateGradient()
+    setInterval(updateGradient, 10)
+  </script>
+</html>

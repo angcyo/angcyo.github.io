@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="../css/scrollbar.css" rel="stylesheet"/>
+    <title>创建APP下载页面</title>
+
+    <style type="text/css">
+        :root {
+            --el-color-white: #ffffff;
+            --el-color-black: #000000;
+            --el-color-primary: #409eff;
+            --el-bg-color-base: #f5f7fa;
+            --el-border-width-base: 1px;
+            --el-border-style-base: solid;
+            --el-fill-base: var(--el-color-white);
+            --el-font-size-extra-large: 20px;
+            --el-font-size-large: 18px;
+            --el-font-size-medium: 16px;
+            --el-font-size-base: 14px;
+            --el-font-size-small: 13px;
+            --el-font-size-extra-small: 12px;
+            --el-border-color-hover: var(--el-text-color-placeholder);
+            --el-border-base: var(--el-border-width-base) var(--el-border-style-base) var(--el-border-color-base);
+            --el-text-color-primary: #303133;
+            --el-text-color-regular: #606266;
+            --el-text-color-secondary: #909399;
+            --el-text-color-placeholder: #c0c4cc;
+            --el-border-color-base: #dcdfe6;
+            --el-border-color-light: #e4e7ed;
+            --el-border-color-lighter: #ebeef5;
+            --el-border-color-extra-light: #f2f6fc;
+            --el-border-radius-base: 4px;
+            --el-border-radius-small: 2px;
+            --el-border-radius-round: 20px;
+            --el-border-radius-circle: 100%;
+            --el-box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+            --el-box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, .1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            width: 100%;
+            min-width: 320px;
+            min-height: 100vh;
+            line-height: 1.4;
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #303133;
+            background-color: #f7f8fa;
+            direction: ltr;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .form-wrap label {
+            text-align: right;
+            display: inline-block;
+            width: 120px;
+            padding-right: 10px;
+        }
+
+        .form-wrap input {
+            text-align: left;
+            min-width: 500px;
+
+            --el-input-text-color: var(--el-text-color-regular);
+            --el-input-border: var(--el-border-base);
+            --el-input-border-color: var(--el-border-color-base);
+            --el-input-border-radius: var(--el-border-radius-base);
+            --el-input-bg-color: var(--el-color-white);
+            --el-input-icon-color: var(--el-text-color-placeholder);
+            --el-input-placeholder-color: var(--el-text-color-placeholder);
+            --el-input-hover-border: var(--el-border-color-hover);
+            --el-input-clear-hover-color: var(--el-text-color-secondary);
+            --el-input-focus-border: var(--el-color-primary);
+            position: relative;
+            line-height: 40px;
+
+            -webkit-appearance: none;
+            background-color: var(--el-input-bg-color, var(--el-color-white));
+            background-image: none;
+            border-radius: var(--el-input-border-radius, var(--el-border-radius-base));
+            border: var(--el-input-border, var(--el-border-base));
+            box-sizing: border-box;
+            color: var(--el-input-text-color, var(--el-text-color-regular));
+            display: inline-block;
+            font-size: inherit;
+            height: 40px;
+            outline: none;
+            padding: 0 15px;
+        }
+
+        .form-wrap input:hover {
+            border-color: var(--el-input-hover-border, var(--el-border-color-hover));
+        }
+
+        .form-wrap input:focus {
+            outline: none;
+            border-color: var(--el-input-focus-border, var(--el-color-primary));
+        }
+
+        .form-item {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .form-wrap .url {
+            min-width: 500px;
+            width: 500px;
+            text-align: left;
+            display: inline-block;
+            word-break: break-all;
+        }
+
+        .preview {
+            width: 460px;
+            height: 800px;
+
+            overflow: hidden;
+            background: #fafafa;
+            border-radius: 20px;
+            box-shadow: 0 8px 12px rgba(64, 158, 255, 0.52);
+        }
+
+        .preview iframe {
+            width: 100%;
+            height: 100%;
+
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
+        }
+
+        #previewUrl {
+            width: 200px;
+        }
+
+    </style>
+  </head>
+  <body>
+
+    <main>
+      <!--表单-->
+      <form action="" class="form-wrap" method="get">
+        <h3>App下载页地址生成器</h3>
+        <div class="form-item">
+          <label for="url">APK下载地址:</label>
+          <input id="url" name="url" required type="text">
+        </div>
+        <div class="form-item">
+          <label for="qrUrl">二维码地址:</label>
+          <input id="qrUrl" name="qrUrl" required type="text">
+        </div>
+        <div class="form-item">
+          <label for="logoUrl">Logo地址:</label>
+          <input id="logoUrl" name="logoUrl" required type="text">
+        </div>
+        <div class="form-item">
+          <label for="title">标题:</label>
+          <input id="title" name="title" required type="text">
+        </div>
+        <div class="form-item">
+          <label for="des">描述:</label>
+          <input id="des" name="des" required type="text">
+        </div>
+        <div class="form-item">
+          <label for="bottomUrl">底部坑位地址:</label>
+          <input id="bottomUrl" name="bottomUrl" required type="text">
+        </div>
+        <div class="form-item">
+          <label>生成的地址-></label>
+          <a class="url" target="_blank">...</a>
+        </div>
+        <div class="form-item">
+          <label>扫码体验-></label>
+          <div><img id="previewUrl"/></div>
+        </div>
+      </form>
+      <!--预览-->
+      <div class="preview">
+        <iframe frameborder="0"
+                scrolling="auto"></iframe>
+      </div>
+    </main>
+
+  </body>
+
+  <script crossorigin="anonymous"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+  <script>
+
+    function updateUrl() {
+      const url = $("#url").val()
+      const qrUrl = $("#qrUrl").val()
+      const logoUrl = $("#logoUrl").val()
+      const title = $("#title").val()
+      const des = $("#des").val()
+      const bottomUrl = $("#bottomUrl").val()
+
+      const base = "https://angcyo.gitee.io/download?"
+      const downloadUrl = base +
+          'r=' + url +
+          '&q=' + qrUrl +
+          '&l=' + logoUrl +
+          '&t=' + title +
+          '&d=' + des +
+          '&b=' + bottomUrl
+
+      localStorage.setItem("url", url)
+      localStorage.setItem("qrUrl", qrUrl)
+      localStorage.setItem("logoUrl", logoUrl)
+      localStorage.setItem("title", title)
+      localStorage.setItem("des", des)
+      localStorage.setItem("bottomUrl", bottomUrl)
+
+      $(".url").text(downloadUrl)
+      $(".url").attr('href', downloadUrl)
+      $("iframe").attr('src', downloadUrl)
+
+      const api = "https://www.mxnzp.com/api/qrcode/create/single?size=400&type=0&content=" + downloadUrl
+      $.ajax({
+        method: "POST",
+        url: api,
+        data: {app_id: "rhqkxdsnjnrpp3xr", app_secret: "Rlh4c1duMDZ4YnZrRks4dU55c1NEQT09"}
+      }).done(function (data) {
+        $("#previewUrl").attr('src', data.data.qrCodeUrl)
+      })
+    }
+
+    $("#url").bind("input propertychange", updateUrl)
+    $("#qrUrl").bind("input propertychange", updateUrl)
+    $("#logoUrl").bind("input propertychange", updateUrl)
+    $("#title").bind("input propertychange", updateUrl)
+    $("#des").bind("input propertychange", updateUrl)
+    $("#bottomUrl").bind("input propertychange", updateUrl)
+
+    $("#url").val(localStorage.getItem("url"))
+    $("#qrUrl").val(localStorage.getItem("qrUrl"))
+    $("#logoUrl").val(localStorage.getItem("logoUrl"))
+    $("#title").val(localStorage.getItem("title"))
+    $("#des").val(localStorage.getItem("des"))
+    $("#bottomUrl").val(localStorage.getItem("bottomUrl"))
+    updateUrl()
+
+  </script>
+</html>

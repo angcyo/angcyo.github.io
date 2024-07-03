@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>UA</title>
+    <script src="js/clipboard.min.js"></script>
+  </head>
+  <body>
+    <div><p id="ua" style="text-align: center"></p></div>
+    <div style="text-align: center">
+      <button id="copy-ua">复制UA</button>
+    </div>
+    <script>
+      //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51
+      //Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+      //Mozilla/5.0 (Linux; Android 13; LE2110 Build/TP1A.220905.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.141 Mobile Safari/537.36 XWEB/5075 MMWEBSDK/20230504 MMWEBID/9418 MicroMessenger/8.0.37.2380(0x28002553) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64
+      //Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 QQ/8.9.58.612 V1_IPH_SQ_8.9.58_1_APP_A Pixel/1080 MiniAppEnable SimpleUISwitch/0 StudyMode/0 CurrentMode/0 CurrentFontScale/1.000000 QQTheme/1000 AppId/537161105 NewProzy/1 Core/WKWebView Device/Apple(iPhone 6Plus) NetType/WIFI QBWebViewType/1 WKType/1
+
+      let ua = navigator.userAgent
+      let platform = ''
+
+      let hardwareConcurrency = navigator.hardwareConcurrency
+
+      //https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgentData
+      //https://developer.mozilla.org/en-US/docs/Web/API/NavigatorUAData/getHighEntropyValues
+      //"architecture", "bitness", "model", "platformVersion", "uaFullVersion", "fullVersionList"
+      //"x86"
+
+      if (navigator.userAgentData) {
+        navigator.userAgentData.getHighEntropyValues(["architecture", "bitness", "model", "platformVersion", "uaFullVersion", "fullVersionList"]).then((uaData) => {
+          //console.log(uaData)
+          platform = uaData.platform + ' ' + uaData.platformVersion + ' ' + uaData.architecture + ' ' + uaData.bitness + '/' + uaData.uaFullVersion
+
+          document.getElementById('ua').innerText = ua + '\n' + hardwareConcurrency + '/' + platform
+        })
+      } else {
+        if (ua.includes('Windows')) {
+          platform = 'Windows'
+        } else if (ua.includes('Android')) {
+          platform = 'Android'
+        } else if (ua.includes('iPhone')) {
+          platform = 'iPhone'
+        } else if (ua.includes('Mac')) {
+          //识别Mac M1/M2
+          if (hardwareConcurrency >= 8) {
+            platform = 'Mac M1/M2'
+          } else {
+            platform = 'Mac Intel'
+          }
+        } else if (ua.includes('Linux')) {
+          platform = 'Linux'
+        } else {
+          platform = 'Unknown'
+        }
+      }
+
+      //console.log(hardwareConcurrency)
+
+      //set
+      document.getElementById('ua').innerText = ua + '\n' + hardwareConcurrency + '/' + platform
+      document.getElementById('copy-ua').setAttribute('data-clipboard-text', ua)
+      new ClipboardJS('#copy-ua')
+    </script>
+  </body>
+</html>

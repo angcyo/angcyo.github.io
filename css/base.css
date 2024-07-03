@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #323233;
+    font-size: 16px;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    background-color: #f7f8fa;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*包含以下四种的链接*/
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*正常的未被访问过的链接*/
+a:link {
+    text-decoration: none;
+}
+
+/*已经访问过的链接*/
+a:visited {
+    text-decoration: none;
+}
+
+/*鼠标划过(停留)的链接*/
+a:hover {
+    text-decoration: none;
+}
+
+/* 正在点击的链接*/
+a:active {
+    text-decoration: none;
+}

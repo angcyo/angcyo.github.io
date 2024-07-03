@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="https://raw.githubusercontent.com/LaserPeckerIst/Changelog/main/res/logo_ds.png" rel="icon"/>
+  <link href="./css/base.css" rel="stylesheet"/>
+  <link href="./css/scrollbar.css" rel="stylesheet"/>
+  <title>软件/固件更新记录</title>
+
+  <!--body全屏显示样式-->
+  <style>
+      html, body, .full {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+          background-color: #f7f8fa;
+      }
+
+      .full {
+          display: flex;
+      }
+
+      .loading-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .column {
+          width: 33.33%;
+          height: 100%;
+          overflow: scroll;
+          padding-left: 1rem;
+          padding-right: 1rem;
+      }
+
+      .name {
+          text-align: center;
+          display: flex;
+          padding: 0.2rem;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+      }
+
+      .linear-gradient-text {
+          background: linear-gradient(90deg, #00c6ff, #0072ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+
+      .linear-gradient-text2 {
+          color: #0072ff; /*设置文字颜色*/
+          text-shadow: 0 1px 8px #6699FF; /*设置文字阴影*/
+      }
+
+      .divider {
+          height: 1rem;
+      }
+
+      .sticky {
+          position: sticky;
+          top: 0;
+          background-color: #f7f8fa;
+      }
+
+      .switch {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          background: linear-gradient(90deg, #00c6ff, #0072ff);
+          border: 1px solid #d5d5d5;
+          right: 2rem;
+          color: #f7f8fa;
+          bottom: 2rem;
+          position: fixed;
+          box-shadow: 0 0 8px 4px #00000014;
+          cursor: pointer;
+      }
+
+      /*悬浮显示样式*/
+      .code {
+          position: absolute;
+          width: 100%;
+          display: none;
+          cursor: pointer;
+          box-shadow: 0 0 8px 4px #00000014;
+      }
+
+      .point {
+          cursor: pointer;
+      }
+
+      .logo {
+          width: 2rem;
+          height: 2rem;
+          margin-right: 0.5rem;
+      }
+
+      #des {
+          overflow: hidden;
+          transition: all 300ms ease-in-out;
+      }
+
+      #des:hover {
+          transform: scale(1.06);
+          box-shadow: 0 0 8px 4px #00000014;
+      }
+  </style>
+
+  <!--引入jQuery-->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<div id="content" class="full">
+</div>
+
+<button class="switch"><span id="text">固件</span></button>
+
+<script>
+
+  function getQueryVariable(variable) {
+    const query = window.location.search.substring(1)
+    const vars = query.split("&")
+    for (let i = 0; i < vars.length; i++) {
+      const pair = vars[i].split("=")
+      if (pair[0] === variable) {
+        return pair[1]
+      }
+    }
+    return undefined
+  }
+
+  let api = getQueryVariable("host") === "oss" ? "https://laserpecker-prod.oss-cn-hongkong.aliyuncs.com/changelog" : "https://raw.githubusercontent.com/LaserPeckerIst/Changelog/main"
+
+  /*显示加载中...*/
+  function toLoading() {
+    let content = $(`#content`)
+    content.empty()
+    content.append(`
+        <div id="loading-wrap" class="full loading-wrap">
+            <span class="loading linear-gradient-text">加载中...</span>
+        </div>
+        `)
+  }
+
+  toLoading()
+
+  /*加载软件/硬件的所有版本对应的changelog*/
+  function loadChangeList(url) {
+    $.ajax({
+      url: `${url}?${$.now()}`,
+      type: "get",
+      dataType: "text",
+      success: function (data) {
+        //使用jquery移除div的内容
+        $("#loading-wrap").remove()
+        JSON.parse(data).forEach(function (item) {
+          appendChangeLog(item)
+        })
+      }
+    })
+  }
+
+  /*在content标签中追加*/
+  function appendChangeLog(data) {
+    //创建一列
+    let column = $(`<div class="column"></div>`)
+    let des = (data.des || "").replaceAll("\n", "<br>")
+    let logoTag
+    if (data.logo) {
+      logoTag = `<img src="${api}${data.logo}" class="logo" alt="logo">`
+    } else {
+      logoTag = ""
+    }
+    column.append(`
+            <div id="header" class="sticky">
+                <div id="nameWrap">
+                  <h1 id="name" class="name linear-gradient-text">${logoTag}${data.name}</h1>
+                  <img id="qrCode" src="${api}${data.qrCode}" class="code" alt="二维码">
+                </div>
+                <p id="des" class="linear-gradient-text2">${des}</p>
+                <div class="divider" />
+            </div>
+        `) //添加标题
+
+    //column滚动之后, 将des的高度设为0
+    let isSlide = false
+    column.scroll(function () {
+      if (!isSlide) {
+        isSlide = true
+        if (column.scrollTop() > 0) {
+          //column.find("#des").hide()
+          //column.find("#des").height("0")
+          column.find("#des").slideUp(400, () => {
+            isSlide = false
+          })
+        } else {
+          //column.find("#des").show()
+          column.find("#des").slideDown(400, () => {
+            isSlide = false
+          })
+        }
+      }
+    })
+
+    //添加更新记录item
+    appendChangeItem(column, api + data.url, data)
+
+    //添加列到内容
+    $("#content").append(column)
+  }
+
+  /*在父容器中插入更新记录item*/
+  function appendChangeItem(parent, url, data) {
+    //div添加/移除指定类
+    let nameTag = $(parent).find(".name")
+    let nameWrapTag = $(parent).find("#nameWrap")
+    if (data.downloadUrl) {
+      nameTag.addClass("point")
+      //点击事件
+      nameTag.click(function () {
+        window.open(data.downloadUrl)
+      })
+    } else {
+      nameTag.removeClass("point")
+    }
+
+    if (data.qrCode) {
+      //鼠标放上去之后显示div
+      nameWrapTag.hover(function () {
+        //显示code
+        $(parent).find("#qrCode").show()
+      }, function () {
+        //隐藏code
+        $(parent).find("#qrCode").hide()
+      })
+    }
+
+    $.ajax({
+      url: `${url}?${$.now()}`,
+      type: "get",
+      dataType: "text",
+      success: function (data) {
+        JSON.parse(data).forEach(function (item) {
+          parent.append(`
+                    <p><h2 style="display: inline; margin-right: 0.5rem">${item.versionName}</h2><span>${item.versionDate}</span></p>
+                    <p>${item.versionDes.replaceAll("\n", "<br>")}</p>
+                    <div class="divider" />
+                    `)
+        })
+      }
+    })
+  }
+
+  /*加载App软件的更新记录*/
+  function loadAppChangelog() {
+    loadChangeList(`${api}/app_changelog_list.json`)
+  }
+
+  /*加载硬件固件的更新记录*/
+  function loadHardChangeLog() {
+    loadChangeList(`${api}/hard_changelog_list.json`)
+  }
+
+  loadAppChangelog()
+
+  //点击事件
+  const switchTag = $(".switch")
+  switchTag.click(function () {
+    if ($(this).text() === "固件") {
+      $("#text").text("软件")
+      toLoading()
+      loadHardChangeLog()
+    } else {
+      $("#text").text("固件")
+      toLoading()
+      loadAppChangelog()
+    }
+  })
+
+  //长按事件
+  let longSwitchTimer;
+  let duration = 1000; // 长按时间阈值，单位为毫秒
+
+  switchTag.on('mousedown touchstart', function () {
+    longSwitchTimer = setTimeout(function () {
+      window.location.href = "./lp.app.statistics.html" + window.location.search;
+    }, duration);
+  }).on('mouseup mouseleave touchend', function () {
+    clearTimeout(longSwitchTimer);
+  });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://portrait.gitee.com/uploads/avatars/user/47/143008_angcyo_1578919345.png!avatar200" rel="icon"/>
+    <link href="./css/base.css" rel="stylesheet"/>
+    <link href="./css/scrollbar.css" rel="stylesheet"/>
+    <title>积分兑换话费</title>
+
+    <style>
+        main {
+            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        a {
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+
+            border-radius: 999px;
+            background-color: transparent;
+            display: inline-block;
+            width: 100%;
+            transition: all .25s ease-in-out;
+
+            margin-bottom: 10px;
+        }
+
+        a:hover {
+            border-radius: 999px;
+            color: #00beff;
+            background-color: rgba(0, 190, 255, 0.22);
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <!--sms测试地址-->
+    <!--https://bradorego.com/test/sms.html-->
+
+    <main>
+      <h3>将积分兑换成话费的方法很简单，发送短信到运营商的号码即可。</h3>
+      <br>
+      <h5>具体如下：</h5>
+      <br>
+      <ul>
+        <li><strong>移动用户：</strong>编辑短信 <kbd>HF</kbd> 发送到 <strong>10658999</strong></li>
+        <li><strong>联通用户：</strong>编辑短信 <kbd>JFJF#Q</kbd> 发送到 <strong>10010</strong></li>
+        <li><strong>电信用户：</strong>编辑短信 <kbd>DHHF</kbd> 发送到 <strong>10001</strong></li>
+      </ul>
+      <br>
+      <br>
+      <h3>快捷操作点击下方按钮：</h3>
+      <br>
+      <a href="sms:10658999?body=HF">移动用户点击此处</a>
+      <a href="sms:10010?body=JFJF%23Q">联通用户点击此处</a>
+      <a href="sms:10001?body=DHHF">电信用户点击此处</a>
+
+      <div style="padding: 20px; font-size: 9px">您是第<span id="pv">0</span>位访问者</div>
+
+      <a href="https://api.isoyu.com/" style="background-color: transparent"><img
+              src="https://api.isoyu.com/ip_images.php"/></a>
+    </main>
+
+  </body>
+
+  <script crossorigin="anonymous"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+  <!--https://tool.lu/js/-->
+  <script src="js/statistics.min.js"></script>
+</html>
