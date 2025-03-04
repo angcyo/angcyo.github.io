@@ -1,3 +1,14 @@
+---
+title: Angcyo
+emoji: 🌖
+colorFrom: gray
+colorTo: pink
+sdk: static
+pinned: false
+license: mit
+short_description: angcyo
+---
+
 # angcyo.github.io
 个人信息介绍
 
@@ -17,8 +28,6 @@
 
 [https://huggingface.co/spaces/angcyo/angcyo](https://huggingface.co/spaces/angcyo/angcyo)
 
-git clone git@hf.co:spaces/angcyo/angcyo
-
 # 访问链接
 
 https://angcyo.gitee.io/
@@ -32,6 +41,8 @@ https://angcyo.github.io/list
 https://angcyo.glitch.me/
 
 https://angcyo.glitch.me/list.html
+
+https://angcyo-angcyo.static.hf.space
 
 https://angcyo-angcyo.static.hf.space/list
 
