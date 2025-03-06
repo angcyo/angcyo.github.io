@@ -28,6 +28,8 @@ short_description: angcyo
 
 [https://huggingface.co/spaces/angcyo/angcyo](https://huggingface.co/spaces/angcyo/angcyo)
 
+[https://gitlab.com/angcyo/angcyo](https://gitlab.com/angcyo/angcyo)
+
 # 访问链接
 
 https://angcyo.gitee.io/
@@ -45,6 +47,10 @@ https://angcyo.glitch.me/list.html
 https://angcyo-angcyo.static.hf.space
 
 https://angcyo-angcyo.static.hf.space/list
+
+https://angcyo-f4775c.gitlab.io
+
+https://angcyo-f4775c.gitlab.io/list
 
 ## 本地服务
 
